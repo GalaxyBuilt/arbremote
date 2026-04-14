@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArbRemote — Galaxy Arbitrage</title>
+  <meta name="description" content="Proprietary $17–$45/hr US remote job data. Earn USD. Live anywhere. Join the Galaxy Arbitrage list." />
+  <meta property="og:title" content="ArbRemote — Galaxy Arbitrage" />
+  <meta property="og:description" content="200+ vetted remote roles. $17–$45/hr. Not on LinkedIn. Not on Indeed." />
+  <meta property="og:url" content="https://arbremote.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --bg2: #edeae2;
+      --surface: #ffffff;
+      --border: #d8d4cb;
+      --text: #1a1814;
+      --text2: #6b6660;
+      --text3: #9b9690;
+      --accent: #c8922a;
+      --accent2: #e6a832;
+      --accent-bg: #fdf3e3;
+      --green: #2d6a4f;
+      --green-bg: #d8f3dc;
+      --pill-bg: #1a1814;
+      --pill-text: #f7f5f0;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 6px rgba(0,0,0,0.04), 0 20px 40px rgba(0,0,0,0.1);
+    }
+    [data-theme="dark"] {
+      --bg: #0e0d0b;
+      --bg2: #161410;
+      --surface: #1c1a16;
+      --border: #2e2b25;
+      --text: #f0ece4;
+      --text2: #9b9690;
+      --text3: #5a5650;
+      --accent: #e6a832;
+      --accent2: #f5c05a;
+      --accent-bg: #1e1a10;
+      --green: #52b788;
+      --green-bg: #0d2818;
+      --pill-bg: #f0ece4;
+      --pill-text: #0e0d0b;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2);
+      --shadow-lg: 0 4px 6px rgba(0,0,0,0.2), 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Fraunces', Georgia, serif;
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+
+    .nav-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+
+    .theme-toggle {
+      width: 40px; height: 22px;
+      background: var(--border);
+      border: none;
+      border-radius: 11px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::after { transform: translateX(18px); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Background geometric accent */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-bg) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-bg);
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 6px 16px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 84px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: clamp(16px, 2.5vw, 22px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text2);
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.3s forwards;
+    }
+
+    /* MATH STRIP */
+    .math-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .math-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: left;
+      min-width: 140px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .math-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .math-card .val {
+      font-family: 'DM Mono', monospace;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .math-card .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+
+    /* FORM SECTION */
+    .form-section {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.5s forwards;
+    }
+
+    .form-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .beehiiv-embed {
+      width: 100% !important;
+      max-width: 100% !important;
+      border-radius: 16px !important;
+      overflow: hidden;
+    }
+
+    /* PROOF SECTION */
+    .proof {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .proof-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .arb-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .arb-table th {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text3);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .arb-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text2);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .arb-table td:first-child {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+    }
+
+    .arb-table td.highlight {
+      color: var(--green);
+      font-style: normal;
+      font-weight: 700;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .arb-table tr:last-child td { border-bottom: none; }
+
+    /* PILLARS */
+    .pillars {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .pillar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+    }
+
+    .pillar-card:hover { transform: translateY(-3px); }
+
+    .pillar-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .pillar-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .pillar-card p {
+      font-size: 13px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    /* QUOTE */
+    .quote-section {
+      position: relative;
+      z-index: 1;
+      background: var(--pill-bg);
+      color: var(--pill-text);
+      padding: 80px 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .quote-section::before {
+      content: '"';
+      position: absolute;
+      top: -40px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 300px;
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      opacity: 0.04;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .quote-text {
+      font-size: clamp(22px, 4vw, 38px);
+      font-weight: 300;
+      font-style: italic;
+      max-width: 680px;
+      margin: 0 auto 24px;
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-text strong {
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .quote-attr {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    /* FOOTER CTA */
+    .footer-cta {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+      text-align: center;
+      background: var(--bg);
+    }
+
+    .footer-cta h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .footer-cta h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .footer-cta p {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text2);
+      margin-bottom: 40px;
+      font-size: 17px;
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: gap;
+      gap: 12px;
+    }
+
+    footer .mono {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: 1px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-tag { display: none; }
+      .math-strip { gap: 8px; }
+      .math-card { min-width: 120px; padding: 12px 14px; }
+      .math-card .val { font-size: 18px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="/">Arb<span>Remote</span></a>
+    <div class="nav-right">
+      <span class="nav-tag">Galaxy Arbitrage</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="eyebrow">Now Accepting Early Members</div>
+
+      <h1>Earn <em>USD.</em><br>Live Anywhere.</h1>
+
+      <p class="subtitle">
+        Proprietary remote job data. $17–$45/hr roles.<br>
+        Not on LinkedIn. Not on Indeed. Only here.
+      </p>
+
+      <div class="math-strip">
+        <div class="math-card">
+          <span class="val">$45/hr</span>
+          <span class="label">Top of range</span>
+        </div>
+        <div class="math-card">
+          <span class="val">60 PHP</span>
+          <span class="label">Per 1 USD</span>
+        </div>
+        <div class="math-card">
+          <span class="val">83%</span>
+          <span class="label">Savings rate</span>
+        </div>
+        <div class="math-card">
+          <span class="val">200+</span>
+          <span class="label">Vetted roles</span>
+        </div>
+        <div class="math-card">
+          <span class="val">$700</span>
+          <span class="label">Monthly burn (PH)</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <span class="form-label">Join the Galaxy Arbitrage list — free weekly drops</span>
+        <iframe
+          src="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c"
+          class="beehiiv-embed"
+          data-test-id="beehiiv-embed"
+          frameborder="0"
+          scrolling="no"
+          style="width:100%;height:379px;margin:0;border-radius:16px!important;background-color:transparent;box-shadow:0 10px 15px -3px rgb(0 0 0/0.1),0 4px 6px -4px rgb(0 0 0/0.1);max-width:100%;">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROOF / ARBITRAGE TABLE -->
+  <section class="proof">
+    <div class="proof-inner">
+      <div class="section-label">The Arbitrage Math</div>
+      <table class="arb-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>US-Based</th>
+            <th>PH-Based (ArbRemote)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Remote income @ $25/hr</td>
+            <td>$4,333/mo</td>
+            <td>$4,333/mo</td>
+          </tr>
+          <tr>
+            <td>Monthly living cost</td>
+            <td>$3,200+</td>
+            <td class="highlight">$700</td>
+          </tr>
+          <tr>
+            <td>Monthly surplus</td>
+            <td>~$1,133</td>
+            <td class="highlight">$3,633</td>
+          </tr>
+          <tr>
+            <td>Annual savings rate</td>
+            <td>~26%</td>
+            <td class="highlight">83%</td>
+          </tr>
+          <tr>
+            <td>Startup runway (12 mo)</td>
+            <td>$13,596</td>
+            <td class="highlight">$43,596</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="section-label">What You Get</div>
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <span class="pillar-icon">📋</span>
+        <h3>Weekly Job Drops</h3>
+        <p>Curated $17–$45/hr remote roles sourced from non-public channels. Delivered before they hit LinkedIn.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">🧮</span>
+        <h3>Arbitrage Playbooks</h3>
+        <p>The math, the strategy, and the step-by-step framework for geographic leverage as a founder.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">🏛️</span>
+        <h3>Grant Intelligence</h3>
+        <p>AI founder grant opportunities from the $500B+ annual US pool. Stacked, non-dilutive, actionable.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">🌏</span>
+        <h3>Expat Founder Insights</h3>
+        <p>Real data on building from SE Asia. Cost breakdowns, visa intel, and runway math from the field.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BREAK -->
+  <section class="quote-section">
+    <p class="quote-text">
+      Geography is not a lifestyle choice.<br>
+      It's a <strong>capitalization strategy.</strong>
+    </p>
+    <p class="quote-attr">ArbRemote · Galaxy Arbitrage</p>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <h2>Stop leaving <em>leverage</em> on the table.</h2>
+    <p>The jobs exist. The math works. You just need the list.</p>
+    <iframe
+      src="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c"
+      class="beehiiv-embed"
+      data-test-id="beehiiv-embed"
+      frameborder="0"
+      scrolling="no"
+      style="width:100%;max-width:860px;height:379px;margin:0 auto;display:block;border-radius:16px!important;background-color:transparent;box-shadow:0 10px 15px -3px rgb(0 0 0/0.1),0 4px 6px -4px rgb(0 0 0/0.1);">
+    </iframe>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="mono">© 2026 ArbRemote · <a href="https://galaxybuilt.dev">GalaxyBuilt</a></span>
+    <span class="mono">Galaxy Arbitrage List</span>
+    <span class="mono">
+      <a href="https://x.com/arbremote">@arbremote</a>
+    </span>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Respect system preference on load
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) html.setAttribute('data-theme', 'dark');
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>
