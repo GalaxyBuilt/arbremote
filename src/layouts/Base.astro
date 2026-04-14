@@ -85,23 +85,40 @@ const { title, description, canonical = "https://arbremote.com", ogImage = "/og-
 
     <style is:global>
       :root {
-        --bg-light: #f7f5f0;
-        --bg-dark: #0e0d0b;
-        --accent: #c8922a;
-        --text-light: #1a1a1a;
-        --text-dark: #f0f0f0;
+        --bg-light: #FBFBFA;
+        --bg-dark: #0A0A0A;
+        --accent: #D4AF37;
+        --accent-muted: rgba(212, 175, 55, 0.2);
+        --text-light: #1A1A1A;
+        --text-dark: #F5F5F0;
         --font-serif: 'Fraunces', serif;
-        --font-mono: 'DM+Mono', monospace;
+        --font-mono: 'DM Mono', monospace;
+        
+        --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       }
 
       [data-theme='light'] {
         --current-bg: var(--bg-light);
         --current-text: var(--text-light);
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
       }
 
       [data-theme='dark'] {
         --current-bg: var(--bg-dark);
         --current-text: var(--text-dark);
+        --glass-bg: rgba(20, 20, 20, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
@@ -109,41 +126,73 @@ const { title, description, canonical = "https://arbremote.com", ogImage = "/og-
         color: var(--current-text);
         font-family: var(--font-serif);
         margin: 0;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        line-height: 1.6;
+        transition: var(--transition);
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Noise Texture Overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        z-index: 9999;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       }
 
       h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-serif);
-        font-weight: 700;
+        font-weight: 800;
         margin: 0;
+        letter-spacing: -0.02em;
       }
 
-      p, span, div, li, body {
-        font-family: var(--font-serif);
+      p, li, body {
+        font-size: 1.1rem;
+        font-weight: 300;
       }
 
-      code, .mono {
+      .mono {
         font-family: var(--font-mono);
+        letter-spacing: -0.05em;
       }
 
       .container {
-        max-width: 1200px;
+        max-width: 1300px;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 2.5rem;
       }
 
       .btn-accent {
         background-color: var(--accent);
         color: white;
         border: none;
-        padding: 0.75rem 1.5rem;
+        padding: 1rem 2rem;
         cursor: pointer;
         font-weight: 600;
-        transition: opacity 0.2s;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.8rem;
       }
 
       .btn-accent:hover {
-        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px var(--accent-muted);
+      }
+
+      /* Glass Integration */
+      .glass {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
       }
     </style>
   </head>

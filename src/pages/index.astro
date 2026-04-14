@@ -7,178 +7,215 @@ export const prerender = true;
   title="ArbRemote — Earn USD. Live Anywhere." 
   description="The premier arbitrage network for expat founders and remote engineers. Capitalize on geography and maximize your earnings."
 >
-  <nav class="fixed-nav">
+  <nav class="fixed-nav glass">
     <div class="container nav-content">
-      <div class="logo">ArbRemote</div>
-      <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
-        <svg class="sun" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-12.37a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zm-12.37 12.37a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/></svg>
-        <svg class="moon" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
-      </button>
+      <div class="logo">ArbRemote<span class="dot">.</span></div>
+      <div class="nav-right">
+        <a href="#math" class="nav-link">Equation</a>
+        <a href="#pillars" class="nav-link">Pillars</a>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
+          <svg class="sun" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-12.37a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zm-12.37 12.37a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+        </button>
+      </div>
     </div>
   </nav>
 
   <main>
     <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="eyebrow-pill animated">Now Active for 2026 Q2</div>
-          <h1>Earn USD.<br/>Live Anywhere.</h1>
-          <p class="subtitle italic">Arbitrage your life. Maximize your focus.</p>
-          
-          <div class="hero-cta">
-            <iframe src="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent; width: 100%; height: 52px;"></iframe>
+      <div class="mesh-gradient"></div>
+      <div class="container hero-content">
+        <div class="eyebrow-pill glass">Now Open for 2026 Batch</div>
+        <h1>Arbitrage Your Life.<br/><span class="text-gradient">Earn USD. Live Anywhere.</span></h1>
+        <p class="subtitle">The high-intent network for Founders and Engineers capitalizing on geographic leverage.</p>
+        
+        <div class="hero-cta glass">
+          <div class="cta-inner">
+            <p class="cta-label">Join 2,400+ List Observers</p>
+            <form action="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c" method="get" target="_blank" class="inline-form">
+              <input type="email" placeholder="Enter your email" required />
+              <button type="submit" class="btn-accent">Get Access</button>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="math-grid container">
-      <div class="math-card">
-        <div class="label">Average Rate</div>
-        <div class="value">$45/hr</div>
+    <section id="math" class="math-grid container">
+      <div class="math-card glass">
+        <div class="label">Median Rate</div>
+        <div class="value mono">$45<span class="unit">/hr</span></div>
       </div>
-      <div class="math-card accent">
-        <div class="label">Local Rate (PH)</div>
-        <div class="value">60 PHP</div>
+      <div class="math-card glass highlight">
+        <div class="label">Arbitrage Multiplier</div>
+        <div class="value mono">x14<span class="unit">Purchasing Power</span></div>
       </div>
-      <div class="math-card">
-        <div class="label">Profit Savings</div>
-        <div class="value">83%</div>
+      <div class="math-card glass">
+        <div class="label">Profit Margin</div>
+        <div class="value mono">83%</div>
       </div>
-      <div class="math-card">
-        <div class="label">Curated Roles</div>
-        <div class="value">200+</div>
-      </div>
-      <div class="math-card accent">
-        <div class="label">Weekly Burn</div>
-        <div class="value">$700</div>
+      <div class="math-card glass">
+        <div class="label">Net Savings Drop</div>
+        <div class="value mono">$7.1k<span class="unit">/mo</span></div>
       </div>
     </section>
 
     <section class="arbitrage-comparison container">
-      <h2 class="section-title">The Arbitrage Equation</h2>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Factor</th>
-              <th>US Standard (SF/NYC)</th>
-              <th>ArbRemote (Global)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Internal Salary</td>
-              <td>$140,000</td>
-              <td>$140,000</td>
-            </tr>
-            <tr>
-              <td>Monthly Rent</td>
-              <td>$4,200</td>
-              <td>$850 (Villa)</td>
-            </tr>
-            <tr>
-              <td>Effective Tax</td>
-              <td>35%</td>
-              <td>0% - 15% (Digital Nomad)</td>
-            </tr>
-            <tr>
-              <td>Net Monthly Savings</td>
-              <td>$1,200</td>
-              <td>$7,100</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="board glass">
+        <div class="board-header">
+          <h2 class="section-title">The Arb Equation<span class="mono">(2026)</span></h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="premium-table">
+            <thead>
+              <tr>
+                <th>Leverage Factor</th>
+                <th>Bay Area Standard</th>
+                <th>Global Arbitrage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Internal Salary</td>
+                <td class="mono">$140,000</td>
+                <td class="mono highlight">$140,000</td>
+              </tr>
+              <tr>
+                <td>Living Overhead</td>
+                <td class="mono">$4,200</td>
+                <td class="mono success">$850</td>
+              </tr>
+              <tr>
+                <td>Effective Tax</td>
+                <td class="mono">35.4%</td>
+                <td class="mono success">0% - 15%</td>
+              </tr>
+              <tr class="total-row">
+                <td>Net Yield</td>
+                <td class="mono">$1,200</td>
+                <td class="mono yield">$7,100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <section class="pillars container">
-      <div class="pillar-card">
+    <section id="pillars" class="pillars-bento container">
+      <div class="bento-card glass tall">
+        <div class="card-icon">⚡</div>
         <h3>Weekly Job Drops</h3>
-        <p>Vetted high-paying USD roles from US companies open to global talent.</p>
+        <p>Vetted high-paying USD roles from US companies open to global talent. We find the 0.1% of roles that value geography-independent expertise.</p>
       </div>
-      <div class="pillar-card">
+      <div class="bento-card glass">
+        <div class="card-icon">🗺️</div>
         <h3>Arbitrage Playbooks</h3>
-        <p>Step-by-step guides for residency, banking, and life optimization.</p>
+        <p>Tactical protocols for residency, offshore banking, and local infrastructure optimization.</p>
       </div>
-      <div class="pillar-card">
-        <h3>Grant Intelligence</h3>
-        <p>Access to non-dilutive funding and global startup grants.</p>
-      </div>
-      <div class="pillar-card">
+      <div class="bento-card glass">
+        <div class="card-icon">🏦</div>
         <h3>Expat Founder Insights</h3>
-        <p>Network with engineers and founders living the arbitrage lifestyle.</p>
+        <p>Exclusive intel on global startup grants and non-dilutive capital for expat builders.</p>
+      </div>
+      <div class="bento-card glass wide">
+        <div class="card-icon">🧠</div>
+        <h3>Grant Intelligence</h3>
+        <p>Connect with a high-intent network of builders who have opted out of high-cost hubs and into high-leverage lifestyles.</p>
       </div>
     </section>
 
     <section class="quote-section">
-      <div class="container">
-        <blockquote class="full-width-quote">
-          "Geography is not a lifestyle choice. It's a capitalization strategy."
+      <div class="mesh-gradient rev"></div>
+      <div class="container quote-content">
+        <span class="quote-mark">“</span>
+        <blockquote class="text-gradient-quote">
+          Geography is not a lifestyle choice. It's a capitalization strategy.
         </blockquote>
+        <div class="quote-author">— Galaxy Arbitrage Manifesto</div>
       </div>
     </section>
 
-    <section class="footer-cta container">
-      <div class="cta-box">
-        <h2>Join the Arbitrage List</h2>
-        <p>Get the first look at the 2026 Q3 Arbitrage Report.</p>
-        <iframe src="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c?slim=true" data-test-id="beehiiv-embed-footer" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent; width: 100%; height: 52px;"></iframe>
+    <section class="final-cta container">
+      <div class="cta-banner glass animate-glow">
+        <h2>Enter the Arbitrage Protocol</h2>
+        <p>The 2026 Q3 Arbitrage Intelligence Report drops in 4 days.</p>
+        <form action="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c" method="get" target="_blank" class="inline-form large">
+          <input type="email" placeholder="Your primary email" required />
+          <button type="submit" class="btn-accent">Join the List</button>
+        </form>
       </div>
     </section>
   </main>
 
   <footer class="main-footer">
     <div class="container footer-content">
-      <div class="copyright">&copy; 2026 ArbRemote / GalaxyBuilt</div>
+      <div class="footer-left">
+        <div class="logo small">ArbRemote<span class="dot">.</span></div>
+        <p>&copy; 2026 ArbRemote / GalaxyBuilt. All Intelligence Protected.</p>
+      </div>
       <div class="footer-links">
-        <a href="#">Galaxy Arbitrage List</a>
-        <a href="https://x.com/arbremote" target="_blank">@arbremote</a>
+        <a href="#" class="nav-link">Galaxy Arbitrage List</a>
+        <a href="https://x.com/arbremote" target="_blank" class="nav-link">@arbremote</a>
       </div>
     </div>
   </footer>
 </Base>
 
 <style>
+  /* Navigation */
   .fixed-nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    border-radius: 999px;
     z-index: 1000;
-    background-color: var(--current-bg);
-    border-bottom: 1px solid rgba(200, 146, 42, 0.2);
-    padding: 1rem 0;
-    backdrop-filter: blur(10px);
+    transition: var(--transition);
   }
 
   .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.75rem 2rem;
   }
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.25rem;
+    font-weight: 900;
     letter-spacing: -0.05em;
-    color: var(--accent);
+    color: var(--current-text);
   }
+
+  .logo.small { font-size: 1rem; }
+
+  .dot { color: var(--accent); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--current-text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: var(--transition);
+  }
+
+  .nav-link:hover { opacity: 1; color: var(--accent); }
 
   .theme-btn {
     background: none;
     border: none;
     color: var(--current-text);
     cursor: pointer;
-    padding: 0.5rem;
     display: flex;
     align-items: center;
-    border-radius: 50%;
-    transition: background-color 0.2s;
-  }
-
-  .theme-btn:hover {
-    background-color: rgba(200, 146, 42, 0.1);
+    transition: var(--transition);
   }
 
   [data-theme='light'] .moon { display: block; }
@@ -188,183 +225,291 @@ export const prerender = true;
 
   /* Hero Section */
   .hero {
-    padding: 10rem 0 6rem;
+    position: relative;
+    padding: 14rem 0 10rem;
     text-align: center;
+    overflow: hidden;
+  }
+
+  .mesh-gradient {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, var(--accent-muted) 0%, transparent 40%);
+    opacity: 0.4;
+    z-index: -1;
+    filter: blur(100px);
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .eyebrow-pill {
-    display: inline-block;
-    padding: 0.25rem 1rem;
+    padding: 0.4rem 1.2rem;
     border-radius: 999px;
-    background-color: rgba(200, 146, 42, 0.1);
-    color: var(--accent);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--accent);
+    color: var(--accent);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .animated {
-    animation: pulse 2s infinite ease-in-out;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.05); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
+    letter-spacing: 0.15em;
   }
 
   h1 {
-    font-size: 5rem;
-    line-height: 1;
-    margin-bottom: 1rem;
-    color: var(--current-text);
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, #FFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .subtitle {
-    font-size: 1.5rem;
-    opacity: 0.8;
-    margin-bottom: 3rem;
+    font-size: 1.4rem;
+    opacity: 0.6;
+    max-width: 600px;
+    margin-bottom: 2rem;
   }
 
   .hero-cta {
-    max-width: 450px;
-    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 500px;
   }
+
+  .cta-inner {
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  .cta-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .inline-form {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.4rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--glass-border);
+  }
+
+  .inline-form input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: white;
+    padding: 0 1rem;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .inline-form.large { padding: 0.6rem; border-radius: 1rem; }
 
   /* Math Grid */
   .math-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-bottom: 8rem;
   }
 
   .math-card {
-    border: 1px solid rgba(200, 146, 42, 0.2);
-    padding: 2rem;
-    text-align: center;
-    background-color: rgba(200, 146, 42, 0.03);
-  }
-
-  .math-card.accent {
-    background-color: var(--accent);
-    color: white;
-  }
-
-  .math-card .value {
-    font-size: 2.5rem;
-    font-weight: 800;
-    font-family: 'DM Mono', monospace;
-  }
-
-  .math-card .label {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-  }
-
-  /* Comparison Table */
-  .arbitrage-comparison {
-    margin-bottom: 8rem;
-  }
-
-  .section-title {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .table-wrapper {
-    overflow-x: auto;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'DM Mono', monospace;
-  }
-
-  th, td {
-    padding: 1.5rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(200, 146, 42, 0.2);
-  }
-
-  th {
-    color: var(--accent);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-  }
-
-  td:last-child {
-    font-weight: 700;
-    color: var(--accent);
-  }
-
-  /* Pillars */
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 8rem;
-  }
-
-  .pillar-card {
     padding: 2.5rem;
-    border: 1px solid rgba(200, 146, 42, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
   }
 
-  .pillar-card:hover {
+  .math-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent);
   }
 
-  .pillar-card h3 {
-    margin-bottom: 1rem;
+  .math-card.highlight {
+    border-color: var(--accent);
+  }
+
+  .math-card .value {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-top: 1rem;
+  }
+
+  .math-card .unit {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin-top: -0.2rem;
+  }
+
+  .math-card .label {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  /* Arbitrage Equation */
+  .arbitrage-comparison { margin-bottom: 10rem; }
+
+  .board {
+    border-radius: 2rem;
+    padding: 4rem;
+    box-shadow: var(--shadow);
+  }
+
+  .board-header { text-align: center; margin-bottom: 4rem; }
+
+  .section-title { font-size: 3.5rem; color: var(--current-text); }
+
+  .premium-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .premium-table th, .premium-table td {
+    padding: 2rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .premium-table th {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    opacity: 0.8;
+  }
+
+  .premium-table td { font-size: 1.5rem; font-weight: 500; }
+
+  .premium-table td.highlight { color: var(--accent); }
+  .premium-table td.success { color: #4ADE80; opacity: 0.9; }
+  .premium-table td.yield { font-size: 2.5rem; color: #4ADE80; font-weight: 800; }
+
+  .total-row td { padding-top: 4rem; border-bottom: none; }
+
+  /* Bento Grid */
+  .pillars-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.5rem;
+    margin-bottom: 10rem;
+  }
+
+  .bento-card {
+    padding: 3rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: var(--transition);
+  }
+
+  .bento-card:hover { transform: scale(1.02); border-color: var(--accent); }
+
+  .bento-card.tall { grid-row: span 2; }
+  .bento-card.wide { grid-column: span 2; }
+
+  .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+  .bento-card h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+
+  /* Quote Section */
+  .quote-section {
+    position: relative;
+    padding: 12rem 0;
+    text-align: center;
+    background: var(--bg-dark);
+    margin-bottom: 10rem;
+    overflow: hidden;
+  }
+
+  .quote-content { position: relative; z-index: 10; }
+
+  .quote-mark {
+    font-size: 8rem;
+    color: var(--accent);
+    opacity: 0.2;
+    display: block;
+    line-height: 0;
+    margin-bottom: 3rem;
+  }
+
+  .text-gradient-quote {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-style: italic;
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #FFF 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .quote-author {
+    margin-top: 3rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.8rem;
     color: var(--accent);
   }
 
-  /* Quote */
-  .quote-section {
-    padding: 8rem 0;
-    background-color: var(--accent);
-    color: white;
+  /* Final CTA */
+  .final-cta { margin-bottom: 10rem; }
+
+  .cta-banner {
+    padding: 8rem 4rem;
+    border-radius: 3rem;
     text-align: center;
-    margin-bottom: 8rem;
+    position: relative;
   }
 
-  .full-width-quote {
-    font-size: 3.5rem;
-    font-style: italic;
-    line-height: 1.1;
-    max-width: 900px;
-    margin: 0 auto;
+  .cta-banner h2 { font-size: 3.5rem; margin-bottom: 1rem; }
+  .cta-banner p { opacity: 0.7; margin-bottom: 3rem; }
+
+  .animate-glow {
+    animation: glow-pulse 4s infinite alternate;
   }
 
-  /* Footer CTA */
-  .footer-cta {
-    margin-bottom: 8rem;
-    text-align: center;
-  }
-
-  .cta-box {
-    padding: 5rem 2rem;
-    border: 2px solid var(--accent);
-    max-width: 800px;
-    margin: 0 auto;
+  @keyframes glow-pulse {
+    from { border-color: var(--glass-border); }
+    to { border-color: var(--accent); box-shadow: 0 0 30px -10px var(--accent-muted); }
   }
 
   /* Footer */
   .main-footer {
-    padding: 4rem 0;
-    border-top: 1px solid rgba(200, 146, 42, 0.1);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
+    padding: 6rem 0;
+    border-top: 1px solid var(--glass-border);
   }
 
   .footer-content {
@@ -373,26 +518,22 @@ export const prerender = true;
     align-items: center;
   }
 
-  .footer-links a {
-    color: var(--current-text);
-    text-decoration: none;
-    margin-left: 2rem;
-    opacity: 0.7;
-  }
+  .footer-left p { font-size: 0.8rem; opacity: 0.5; margin-top: 0.5rem; }
 
-  .footer-links a:hover {
-    opacity: 1;
-    color: var(--accent);
-  }
-
-  .italic {
-    font-style: italic;
+  @media (max-width: 1024px) {
+    .pillars-bento { grid-template-columns: 1fr 1fr; }
+    .bento-card.wide { grid-column: span 1; }
+    .bento-card.tall { grid-row: span 1; }
   }
 
   @media (max-width: 768px) {
-    h1 { font-size: 3rem; }
-    .full-width-quote { font-size: 2rem; }
-    .footer-content { flex-direction: column; gap: 1rem; text-align: center; }
-    .footer-links a { margin: 0 1rem; }
+    .pillars-bento { grid-template-columns: 1fr; }
+    .board { padding: 2rem; }
+    .premium-table th { display: none; }
+    .premium-table td { display: block; padding: 1rem 0; font-size: 1.1rem; text-align: center; }
+    .premium-table td.yield { font-size: 2rem; }
+    .total-row td { padding-top: 2rem; }
+    .hero { padding: 10rem 0 6rem; }
+    .fixed-nav { top: 0; left: 0; right: 0; border-radius: 0; }
   }
 </style>

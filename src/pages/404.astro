@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+export const prerender = true;
+---
+
+<Base 
+  title="404 — Page Not Found | ArbRemote" 
+  description="The path you are looking for does not exist in the arbitrage network."
+>
+  <nav class="fixed-nav glass">
+    <div class="container nav-content">
+      <a href="/" class="logo">ArbRemote<span class="dot">.</span></a>
+    </div>
+  </nav>
+
+  <main class="error-page">
+    <div class="mesh-gradient"></div>
+    <div class="container error-content">
+      <div class="error-code mono">404</div>
+      <h1>Lost the Arbitrage.</h1>
+      <p class="subtitle">The protocol you are looking for has been moved or capitalized elsewhere.</p>
+      
+      <div class="actions">
+        <a href="/" class="btn-accent">Return to Base</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="logo small">ArbRemote<span class="dot">.</span></div>
+        <p>&copy; 2026 ArbRemote. All Intelligence Protected.</p>
+      </div>
+    </div>
+  </footer>
+</Base>
+
+<style>
+  .fixed-nav {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    border-radius: 999px;
+    z-index: 1000;
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--current-text);
+    text-decoration: none;
+  }
+
+  .dot { color: var(--accent); }
+
+  .error-page {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .mesh-gradient {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, var(--accent-muted) 0%, transparent 40%);
+    opacity: 0.3;
+    z-index: -1;
+    filter: blur(100px);
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .error-code {
+    font-size: 8rem;
+    font-weight: 900;
+    opacity: 0.1;
+    line-height: 1;
+    margin-bottom: -2rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.6;
+    max-width: 500px;
+  }
+
+  .actions {
+    margin-top: 2rem;
+  }
+
+  .main-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-left p { font-size: 0.8rem; opacity: 0.3; margin-top: 0.5rem; }
+</style>
