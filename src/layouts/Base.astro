@@ -1,0 +1,175 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const { title, description, canonical = "https://arbremote.com", ogImage = "/og-image.jpg" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="arbitrage, remote work, earn usd, digital nomad, galaxybuilt, arb remote" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ArbRemote",
+        "url": "https://arbremote.com",
+        "description": "Earn USD. Live Anywhere. The premium arbitrage remote job network."
+      }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+
+    <!-- Beehiiv Script -->
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+
+    <!-- Theme Toggle Script -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+
+      window.localStorage.setItem('theme', theme);
+    </script>
+
+    <!-- Pixel Placeholders -->
+    <!-- [GTM] -->
+    <!-- [Meta Pixel] -->
+    <!-- [TikTok Pixel] -->
+    <!-- [LinkedIn Insight Tag] -->
+
+    <style is:global>
+      :root {
+        --bg-light: #f7f5f0;
+        --bg-dark: #0e0d0b;
+        --accent: #c8922a;
+        --text-light: #1a1a1a;
+        --text-dark: #f0f0f0;
+        --font-serif: 'Fraunces', serif;
+        --font-mono: 'DM+Mono', monospace;
+      }
+
+      [data-theme='light'] {
+        --current-bg: var(--bg-light);
+        --current-text: var(--text-light);
+      }
+
+      [data-theme='dark'] {
+        --current-bg: var(--bg-dark);
+        --current-text: var(--text-dark);
+      }
+
+      body {
+        background-color: var(--current-bg);
+        color: var(--current-text);
+        font-family: var(--font-serif);
+        margin: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        margin: 0;
+      }
+
+      p, span, div, li, body {
+        font-family: var(--font-serif);
+      }
+
+      code, .mono {
+        font-family: var(--font-mono);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .btn-accent {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+
+      .btn-accent:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      const handleToggleClick = () => {
+        const element = document.documentElement;
+        const isDark = element.getAttribute('data-theme') === 'dark';
+        element.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      };
+
+      document.addEventListener('astro:page-load', () => {
+        const toggle = document.getElementById('themeToggle');
+        if (toggle) {
+          toggle.addEventListener('click', handleToggleClick);
+        }
+      });
+
+      // Initial attachment
+      const toggle = document.getElementById('themeToggle');
+      if (toggle) {
+        toggle.addEventListener('click', handleToggleClick);
+      }
+    </script>
+  </body>
+</html>
