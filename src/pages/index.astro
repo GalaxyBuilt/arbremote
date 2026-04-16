@@ -31,11 +31,20 @@ export const prerender = true;
         
         <div class="hero-cta glass">
           <div class="cta-inner">
-            <p class="cta-label">Join 2,400+ List Observers</p>
-            <form action="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c" method="get" target="_blank" class="inline-form">
-              <input type="email" placeholder="Enter your email" required />
-              <button type="submit" class="btn-accent">Get Access</button>
+            <p class="cta-label">Get Free Sample Joblist</p>
+            <form 
+              action="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c" 
+              method="get" 
+              target="hidden_iframe" 
+              class="inline-form"
+              id="hero-form"
+            >
+              <input type="email" name="email" placeholder="Enter your email" required />
+              <button type="submit" class="btn-accent">Get Sample</button>
             </form>
+            <div id="hero-success" class="success-msg hidden">
+              Success! Check your inbox to confirm.
+            </div>
           </div>
         </div>
       </div>
@@ -139,10 +148,19 @@ export const prerender = true;
       <div class="cta-banner glass animate-glow">
         <h2>Enter the Arbitrage Protocol</h2>
         <p>The 2026 Q3 Arbitrage Intelligence Report drops in 4 days.</p>
-        <form action="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c" method="get" target="_blank" class="inline-form large">
-          <input type="email" placeholder="Your primary email" required />
-          <button type="submit" class="btn-accent">Join the List</button>
+        <form 
+          action="https://subscribe-forms.beehiiv.com/3f5ff9b2-593c-48d9-bcc2-fa6bdf772e7c" 
+          method="get" 
+          target="hidden_iframe" 
+          class="inline-form large"
+          id="final-form"
+        >
+          <input type="email" name="email" placeholder="Your primary email" required />
+          <button type="submit" class="btn-accent">Get Sample</button>
         </form>
+        <div id="final-success" class="success-msg hidden">
+          Success! Check your inbox to confirm.
+        </div>
       </div>
     </section>
   </main>
@@ -158,7 +176,29 @@ export const prerender = true;
         <a href="https://x.com/arbremote" target="_blank" class="nav-link">@arbremote</a>
       </div>
     </div>
-  </footer>
+</footer>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script is:inline>
+    // Handle form submission success
+    const heroForm = document.getElementById('hero-form');
+    const finalForm = document.getElementById('final-form');
+    const heroSuccess = document.getElementById('hero-success');
+    const finalSuccess = document.getElementById('final-success');
+    const iframe = document.getElementById('hidden_iframe');
+
+    const handleFormSubmit = (form, success) => {
+      form.addEventListener('submit', () => {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+        success.classList.add('animate-in');
+      });
+    };
+
+    if (heroForm && heroSuccess) handleFormSubmit(heroForm, heroSuccess);
+    if (finalForm && finalSuccess) handleFormSubmit(finalForm, finalSuccess);
+  </script>
 </Base>
 
 <style>
@@ -283,6 +323,7 @@ export const prerender = true;
     opacity: 0.6;
     max-width: 600px;
     margin-bottom: 2rem;
+    padding: 0 1rem;
   }
 
   .hero-cta {
@@ -290,6 +331,7 @@ export const prerender = true;
     border-radius: 1.5rem;
     width: 100%;
     max-width: 500px;
+    margin: 0 auto;
   }
 
   .cta-inner {
@@ -309,20 +351,52 @@ export const prerender = true;
   .inline-form {
     display: flex;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--glass-bg);
     padding: 0.4rem;
     border-radius: 0.75rem;
     border: 1px solid var(--glass-border);
+    transition: var(--transition);
+  }
+
+  .inline-form:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px -5px var(--accent-muted);
   }
 
   .inline-form input {
     flex: 1;
     background: none;
     border: none;
-    color: white;
+    color: var(--current-text);
     padding: 0 1rem;
     font-family: inherit;
     outline: none;
+    min-width: 0;
+  }
+
+  .inline-form input::placeholder {
+    opacity: 0.5;
+    color: var(--current-text);
+  }
+
+  .success-msg {
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hidden { display: none !important; }
+
+  @keyframes animate-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-in {
+    animation: animate-in 0.5s ease-out forwards;
   }
 
   .inline-form.large { padding: 0.6rem; border-radius: 1rem; }
@@ -330,17 +404,18 @@ export const prerender = true;
   /* Math Grid */
   .math-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
     margin-bottom: 8rem;
   }
 
   .math-card {
-    padding: 2.5rem;
+    padding: 2.5rem 1.5rem;
     border-radius: 1rem;
     position: relative;
     overflow: hidden;
     transition: var(--transition);
+    text-align: center;
   }
 
   .math-card:hover {
@@ -380,8 +455,9 @@ export const prerender = true;
 
   .board {
     border-radius: 2rem;
-    padding: 4rem;
+    padding: 4rem 2rem;
     box-shadow: var(--shadow);
+    overflow: hidden;
   }
 
   .board-header { text-align: center; margin-bottom: 4rem; }
@@ -394,7 +470,7 @@ export const prerender = true;
   }
 
   .premium-table th, .premium-table td {
-    padding: 2rem;
+    padding: 1.5rem 1rem;
     text-align: left;
     border-bottom: 1px solid var(--glass-border);
   }
@@ -535,5 +611,13 @@ export const prerender = true;
     .total-row td { padding-top: 2rem; }
     .hero { padding: 10rem 0 6rem; }
     .fixed-nav { top: 0; left: 0; right: 0; border-radius: 0; }
+    .section-title { font-size: 2rem; }
+    .cta-banner { padding: 4rem 1.5rem; }
+    .cta-banner h2 { font-size: 2.2rem; }
+    .inline-form { flex-direction: column; padding: 1rem; gap: 1rem; }
+    .inline-form input { padding: 1rem; text-align: center; }
+    .inline-form button { width: 100%; }
+    .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .premium-table { min-width: 600px; }
   }
 </style>
